@@ -3,94 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CODAS - Coding & Data Science Club</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>CODAS — Community of Digital and AI at School</title>
+    <meta name="description" content="Komunitas ekstrakurikuler sekolah di bidang AI, Pemrograman, Web Development, dan Desain Kreatif. Build the future with digital & AI.">
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            black: '#090A0F',
-                            dark: '#12151E',
-                            card: '#1A1E2E',
-                            sky: '#38BDF8',
-                            light: '#7DD3FC',
-                            cyan: '#22D3EE',
-                            glow: '#0EA5E9',
-                            muted: '#94A3B8'
-                        }
+                        navy: {
+                            800: '#0b0f19',
+                            900: '#070a12',
+                            950: '#030509',
+                        },
+                        electric: '#00f0ff',
+                        cyanGlow: '#00d8f6',
+                        deepBlue: '#1e293b'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+                        mono: ['Space Grotesk', 'monospace'],
                     },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' },
-                        }
+                    boxShadow: {
+                        'glow': '0 0 25px -5px rgba(0, 240, 255, 0.4)',
+                        'glow-lg': '0 0 40px -5px rgba(0, 240, 255, 0.6)',
+                        'glow-purple': '0 0 25px -5px rgba(168, 85, 247, 0.4)'
                     }
                 }
             }
         }
     </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Canvas Animation & Custom Styling -->
     <style>
         body {
-            background-color: #090A0F;
-            color: #F8FAFC;
             font-family: 'Inter', sans-serif;
+            background-color: #030509;
+            color: #f3f4f6;
             overflow-x: hidden;
         }
-        
-        .glass-panel {
-            background: rgba(18, 21, 30, 0.7);
+
+        .font-mono-tech {
+            font-family: 'Space Grotesk', monospace;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .glass-card {
-            background: rgba(26, 30, 46, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(56, 189, 248, 0.1);
-            transition: all 0.3s ease;
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .glass-card:hover {
-            border-color: rgba(56, 189, 248, 0.5);
-            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.25);
+        .glass-card-hover:hover {
+            border-color: rgba(0, 240, 255, 0.4);
             transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.25);
         }
 
+        .glass-nav {
+            background: rgba(7, 10, 18, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Gradient Text */
         .text-gradient {
-            background: linear-gradient(135deg, #7DD3FC 0%, #38BDF8 50%, #22D3EE 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #00f0ff 50%, #a855f7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .glow-effect {
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
-        }
-
-        .grid-pattern {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+        .text-cyan-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #00f0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* Custom Scrollbar */
@@ -98,164 +100,162 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #090A0F;
+            background: #030509;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1A1E2E;
+            background: #1e293b;
             border-radius: 4px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #38BDF8;
+            background: #00f0ff;
+        }
+
+        /* Hero Animation Grid Background */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Glowing Orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
         }
     </style>
 </head>
-<body class="grid-pattern antialiased selection:bg-brand-sky selection:text-brand-black">
+<body class="bg-navy-950 text-gray-200 antialiased relative selection:bg-electric selection:text-black">
 
-    <!-- Navigation Bar -->
-    <header class="fixed top-0 left-0 right-0 z-50 px-4 py-4 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto">
-            <nav class="glass-panel rounded-2xl px-6 py-3 flex items-center justify-between shadow-2xl">
-                <!-- Brand Logo -->
-                <a href="#" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-sky to-brand-cyan flex items-center justify-center font-mono font-bold text-brand-black text-xl shadow-lg group-hover:scale-105 transition-transform">
-                        &lt;/&gt;
+    <!-- Glowing background Orbs -->
+    <div class="glow-orb w-96 h-96 bg-electric/15 top-10 -left-20"></div>
+    <div class="glow-orb w-[500px] h-[500px] bg-purple-600/10 top-[40%] -right-20"></div>
+    <div class="glow-orb w-96 h-96 bg-cyan-500/10 bottom-20 left-10"></div>
+
+    <!-- Navbar Header -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-electric via-cyan-500 to-purple-600 p-[1px] shadow-glow">
+                    <div class="w-full h-full bg-navy-900 rounded-[11px] flex items-center justify-center group-hover:bg-opacity-80 transition">
+                        <i data-lucide="cpu" class="w-5 h-5 text-electric"></i>
                     </div>
-                    <div class="flex flex-col">
-                        <span class="font-extrabold text-xl tracking-wider text-white flex items-center gap-1">
-                            CODAS <span class="w-2 h-2 rounded-full bg-brand-sky animate-ping"></span>
-                        </span>
-                        <span class="text-[10px] text-brand-sky tracking-widest uppercase font-mono">Code & Data Science</span>
-                    </div>
-                </a>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                    <a href="#about" class="text-gray-300 hover:text-brand-sky transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-brand-sky after:absolute after:bottom-0 after:left-0 after:transition-all">Tentang</a>
-                    <a href="#divisions" class="text-gray-300 hover:text-brand-sky transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-brand-sky after:absolute after:bottom-0 after:left-0 after:transition-all">Divisi</a>
-                    <a href="#projects" class="text-gray-300 hover:text-brand-sky transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-brand-sky after:absolute after:bottom-0 after:left-0 after:transition-all">Karya</a>
-                    <a href="#schedule" class="text-gray-300 hover:text-brand-sky transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-brand-sky after:absolute after:bottom-0 after:left-0 after:transition-all">Jadwal</a>
-                    <a href="#faq" class="text-gray-300 hover:text-brand-sky transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-brand-sky after:absolute after:bottom-0 after:left-0 after:transition-all">FAQ</a>
                 </div>
-
-                <!-- CTA Join Button -->
-                <div class="hidden md:block">
-                    <a href="#register" class="relative group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-sky to-brand-cyan text-brand-black font-semibold text-sm hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] transition-all duration-300 active:scale-95">
-                        <span>Gabung Sekarang</span>
-                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
-                    </a>
+                <div class="flex flex-col">
+                    <span class="font-mono-tech font-bold text-xl tracking-wider text-white flex items-center gap-1">
+                        CODAS <span class="w-2 h-2 rounded-full bg-electric animate-pulse"></span>
+                    </span>
+                    <span class="text-[10px] text-gray-400 tracking-widest uppercase">Digital & AI Club</span>
                 </div>
+            </a>
 
-                <!-- Mobile Hamburger Button -->
-                <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Menu">
-                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
-                </button>
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#home" class="text-sm font-medium text-gray-300 hover:text-electric transition-colors">Home</a>
+                <a href="#about" class="text-sm font-medium text-gray-300 hover:text-electric transition-colors">About</a>
+                <a href="#divisions" class="text-sm font-medium text-gray-300 hover:text-electric transition-colors">Divisions</a>
+                <a href="#activities" class="text-sm font-medium text-gray-300 hover:text-electric transition-colors">Activities</a>
+                <a href="#projects" class="text-sm font-medium text-gray-300 hover:text-electric transition-colors">Projects</a>
+                <a href="#team" class="text-sm font-medium text-gray-300 hover:text-electric transition-colors">Team</a>
+                <a href="#faq" class="text-sm font-medium text-gray-300 hover:text-electric transition-colors">FAQ</a>
             </nav>
 
-            <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden md:hidden glass-panel rounded-2xl mt-2 p-6 flex flex-col space-y-4 font-medium transition-all">
-                <a href="#about" class="mobile-link text-gray-300 hover:text-brand-sky py-2 border-b border-gray-800">Tentang</a>
-                <a href="#divisions" class="mobile-link text-gray-300 hover:text-brand-sky py-2 border-b border-gray-800">Divisi</a>
-                <a href="#projects" class="mobile-link text-gray-300 hover:text-brand-sky py-2 border-b border-gray-800">Karya</a>
-                <a href="#schedule" class="mobile-link text-gray-300 hover:text-brand-sky py-2 border-b border-gray-800">Jadwal</a>
-                <a href="#faq" class="mobile-link text-gray-300 hover:text-brand-sky py-2 border-b border-gray-800">FAQ</a>
-                <a href="#register" class="mobile-link text-center px-5 py-3 rounded-xl bg-gradient-to-r from-brand-sky to-brand-cyan text-brand-black font-bold mt-2">Gabung Sekarang</a>
+            <!-- CTA Button Desktop -->
+            <div class="hidden md:flex items-center">
+                <button onclick="openJoinModal()" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-xl group bg-gradient-to-br from-electric to-purple-600 group-hover:from-electric group-hover:to-cyan-400 text-white shadow-glow hover:shadow-glow-lg transition duration-300">
+                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-navy-900 rounded-[10px] group-hover:bg-opacity-0 font-semibold flex items-center gap-2">
+                        <span>Join Us</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-electric group-hover:text-white transition"></i>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobileMenuBtn" aria-label="Toggle navigation menu" class="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-navy-800 focus:outline-none">
+                    <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer" class="hidden md:hidden glass-nav border-t border-gray-800/50 px-4 pt-4 pb-6 space-y-3 transition-all duration-300">
+            <a href="#home" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-navy-800 hover:text-electric">Home</a>
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-navy-800 hover:text-electric">About</a>
+            <a href="#divisions" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-navy-800 hover:text-electric">Divisions</a>
+            <a href="#activities" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-navy-800 hover:text-electric">Activities</a>
+            <a href="#projects" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-navy-800 hover:text-electric">Projects</a>
+            <a href="#team" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-navy-800 hover:text-electric">Team</a>
+            <a href="#faq" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-gray-200 hover:bg-navy-800 hover:text-electric">FAQ</a>
+            <div class="pt-2">
+                <button onclick="openJoinModal()" class="w-full py-3 bg-gradient-to-r from-electric to-blue-600 text-black font-bold rounded-xl text-center shadow-glow flex items-center justify-center gap-2">
+                    <span>Join Our Community</span>
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden">
-        <!-- Glowing Orbs Background -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-sky/15 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-brand-cyan/10 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <section id="home" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden bg-grid-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Left Hero Text -->
-                <div class="lg:col-span-7 text-center lg:text-left space-y-8">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-brand-sky/30 text-brand-sky text-xs sm:text-sm font-mono">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span>Open Recruitment CODAS 2026/2027</span>
+                <!-- Hero Left Column Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-electric/30 bg-electric/10 text-electric text-xs sm:text-sm font-mono-tech tracking-wide">
+                        <i data-lucide="terminal" class="w-4 h-4"></i>
+                        <span>THINK. CREATE. INNOVATE.</span>
                     </div>
 
-                    <h1 class="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-tight">
-                        Ciptakan <span class="text-gradient">Masa Depan</span> Dengan Kode & Data.
+                    <h1 class="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+                        BUILD THE FUTURE <br class="hidden sm:inline" />
+                        WITH <span class="text-gradient">DIGITAL & AI.</span>
                     </h1>
 
-                    <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
-                        Wadah eksplorasi kreativitas siswa dalam dunia pemograman, kecerdasan buatan (AI), analisis data, dan pengembangan web modern. Ubah ide liarmu menjadi produk nyata!
+                    <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Explore technology, create innovation, and shape the future with <strong class="text-gray-200">CODAS</strong> — Community of Digital and AI at School. Wadah eksplorasi teknologi terdepan untuk generasi digital.
                     </p>
 
-                    <!-- Interactive Buttons -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#register" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-sky via-brand-light to-brand-cyan text-brand-black font-bold text-base hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] transition-all transform hover:-translate-y-1 text-center">
-                            Daftar Anggota Sekarang <i class="fa-solid fa-rocket ml-2"></i>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                        <a href="#divisions" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-electric text-black font-bold text-sm tracking-wide hover:bg-cyanGlow transition-all shadow-glow hover:scale-105 duration-200 flex items-center justify-center gap-2">
+                            <span>Explore CODAS</span>
+                            <i data-lucide="compass" class="w-4 h-4"></i>
                         </a>
-                        <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-white font-medium text-base hover:border-brand-sky/50 transition-all hover:bg-brand-card/80 text-center flex items-center justify-center gap-2">
-                            <i class="fa-regular fa-compass text-brand-sky"></i> Jelajahi Lebih Lanjut
-                        </a>
+                        <button onclick="openJoinModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card border border-gray-700 hover:border-electric/50 text-white font-semibold text-sm tracking-wide transition-all duration-200 flex items-center justify-center gap-2 hover:bg-navy-800">
+                            <span>Join Our Community</span>
+                            <i data-lucide="user-plus" class="w-4 h-4 text-electric"></i>
+                        </button>
                     </div>
 
-                    <!-- Quick Stats -->
-                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-gray-800/80 max-w-lg mx-auto lg:mx-0">
-                        <div>
-                            <p class="text-2xl sm:text-3xl font-extrabold text-white font-mono">120+</p>
-                            <p class="text-xs text-brand-muted mt-1">Alumni Active</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl sm:text-3xl font-extrabold text-brand-sky font-mono">15+</p>
-                            <p class="text-xs text-brand-muted mt-1">Proyek Sukses</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl sm:text-3xl font-extrabold text-white font-mono">8+</p>
-                            <p class="text-xs text-brand-muted mt-1">Penghargaan</p>
-                        </div>
+                    <!-- Tech Tags Badge -->
+                    <div class="pt-6 border-t border-gray-800/60 flex flex-wrap gap-6 justify-center lg:justify-start text-xs text-gray-400 font-mono-tech">
+                        <span class="flex items-center gap-1.5"><i data-lucide="brain" class="w-4 h-4 text-purple-400"></i> Neural Nets</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="code" class="w-4 h-4 text-electric"></i> Fullstack Web</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="palette" class="w-4 h-4 text-pink-400"></i> UI/UX Design</span>
                     </div>
                 </div>
 
-                <!-- Right Hero Code Simulation Box -->
-                <div class="lg:col-span-5">
-                    <div class="relative animate-float">
-                        <!-- Neon backdrop box -->
-                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-sky to-brand-cyan rounded-3xl opacity-30 blur-xl"></div>
+                <!-- Hero Right Column Interactive Canvas & Neural Graphics -->
+                <div class="lg:col-span-5 relative flex justify-center items-center">
+                    <div class="relative w-full max-w-md aspect-square rounded-3xl glass-card p-4 border border-electric/20 shadow-glow relative overflow-hidden group">
                         
-                        <!-- Terminal Window Container -->
-                        <div class="relative glass-card rounded-2xl overflow-hidden shadow-2xl border border-brand-sky/20 font-mono text-sm">
-                            <!-- Terminal Header -->
-                            <div class="bg-brand-dark/90 px-4 py-3 border-b border-gray-800 flex items-center justify-between">
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                                </div>
-                                <span class="text-xs text-gray-500">codas_member.py</span>
-                                <i class="fa-solid fa-code text-xs text-brand-sky"></i>
+                        <!-- Floating Tech Canvas Container -->
+                        <canvas id="heroCanvas" class="w-full h-full rounded-2xl bg-navy-900/80 cursor-pointer"></canvas>
+                        
+                        <!-- Floating Hologram Overlay Badge -->
+                        <div class="absolute bottom-8 left-8 right-8 p-4 glass-card rounded-2xl border border-white/10 flex items-center gap-3 backdrop-blur-md">
+                            <div class="w-10 h-10 rounded-lg bg-electric/20 flex items-center justify-center text-electric">
+                                <i data-lucide="zap" class="w-5 h-5 animate-bounce"></i>
                             </div>
-
-                            <!-- Terminal Body Code -->
-                            <div class="p-5 text-gray-300 space-y-3 bg-brand-black/90 min-h-[280px]">
-                                <div class="text-gray-500"># Inisialisasi Anggota Baru CODAS</div>
-                                <div><span class="text-pink-400">class</span> <span class="text-yellow-300">NewStudent</span>:</div>
-                                <div class="pl-4"><span class="text-pink-400">def</span> <span class="text-blue-400">__init__</span>(self, name, passion):</div>
-                                <div class="pl-8">self.name = name</div>
-                                <div class="pl-8">self.passion = passion</div>
-                                <div class="pl-8">self.skills = [<span class="text-emerald-300">'Python'</span>, <span class="text-emerald-300">'Web Tech'</span>, <span class="text-emerald-300">'AI'</span>]</div>
-                                
-                                <div class="pt-2"><span class="text-purple-400">student</span> = NewStudent(<span class="text-emerald-300">"Kamu"</span>, <span class="text-emerald-300">"Technology"</span>)</div>
-                                <div class="text-brand-sky font-semibold">print(<span class="text-emerald-300">f"Selamat Datang di CODAS, {student.name}! 🚀"</span>)</div>
-                                
-                                <div class="pt-2 border-t border-gray-800/60 flex items-center gap-2 text-emerald-400 text-xs">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>Output: Ready to innovate and build cool stuff!</span>
-                                </div>
-                            </div>
-
-                            <!-- Terminal Footer Stats -->
-                            <div class="bg-brand-dark/50 px-4 py-2 border-t border-gray-800/80 text-[11px] text-gray-500 flex justify-between">
-                                <span>Status: <span class="text-emerald-400">Active</span></span>
-                                <span>UTF-8</span>
+                            <div>
+                                <h2 class="text-xs font-mono-tech text-electric tracking-widest uppercase">System Online</h2>
+                                <p class="text-xs text-gray-300 font-medium">Interactive AI Node Matrix</p>
                             </div>
                         </div>
                     </div>
@@ -266,134 +266,289 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 relative">
+    <section id="about" class="py-24 relative border-t border-gray-800/40 bg-navy-900/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-mono tracking-widest text-brand-sky uppercase mb-3">// Mengapa CODAS?</h2>
-                <p class="text-3xl sm:text-4xl font-extrabold text-white">Bukan Sekadar Ekstrakurikuler Komputer Biasa</p>
-                <p class="text-gray-400 mt-4">Di CODAS, kami menggabungkan logika pemrograman dengan analisis data untuk memecahkan masalah nyata dengan cara yang menyenangkan.</p>
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-xs font-mono-tech text-electric tracking-widest uppercase font-semibold">About CODAS</h2>
+                <h3 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">More Than Just an Extracurricular.</h3>
+                <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                    CODAS merupakan wadah inklusif bagi para siswa untuk belajar, bereksperimen, berkolaborasi, dan mengembangkan keterampilan praktis di bidang teknologi digital serta Kecerdasan Buatan (AI) guna siap menghadapi tantangan masa depan.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                    <div class="w-14 h-14 rounded-xl bg-brand-sky/10 text-brand-sky flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-sky group-hover:text-brand-black transition-all">
-                        <i class="fa-solid fa-laptop-code"></i>
+            <!-- Core Values Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <!-- Value 1 -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-electric/10 text-electric flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i data-lucide="lightbulb" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Hands-on Project</h3>
+                    <h4 class="text-xl font-bold text-white mb-3">Innovation</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        Kamu tidak hanya belajar teori. Setiap modul pembelajaran diakhiri dengan pembuatan proyek nyata seperti website, aplikasi, hingga model AI sederhana.
+                        Berani menciptakan ide baru, berpikir kritis luar biasa, dan mengasah solusi kreatif dalam memecahkan berbagai tantangan teknologi.
                     </p>
+                    <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition">
+                        <i data-lucide="lightbulb" class="w-32 h-32 text-white"></i>
+                    </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                    <div class="w-14 h-14 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-cyan group-hover:text-brand-black transition-all">
-                        <i class="fa-solid fa-users"></i>
+                <!-- Value 2 -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i data-lucide="users" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Mentorship & Kolaborasi</h3>
+                    <h4 class="text-xl font-bold text-white mb-3">Collaboration</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        Dibimbing langsung oleh kakak kelas berpengalaman dan praktisi industri. Lingkungan belajar yang suportif dan bebas dari rasa takut salah.
+                        Berkembang bersama melalui kerja tim yang solid, berbagi pengetahuan, dan saling mendukung dalam menyelesaikan proyek digital.
                     </p>
+                    <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition">
+                        <i data-lucide="users" class="w-32 h-32 text-white"></i>
+                    </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
-                    <div class="w-14 h-14 rounded-xl bg-brand-sky/10 text-brand-sky flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-sky group-hover:text-brand-black transition-all">
-                        <i class="fa-solid fa-trophy"></i>
+                <!-- Value 3 -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i data-lucide="rocket" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Kompetisi & Prestasi</h3>
+                    <h4 class="text-xl font-bold text-white mb-3">Exploration</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        Dapatkan kesempatan mewakili sekolah dalam ajang Olimpiade Informatika (OSN), Hackathon tingkat pelajar, dan Lomba Web Design.
+                        Terus belajar tanpa henti dan menguji batasan teknologi terbaru, mulai dari kecerdasan buatan hingga pengembangan perangkat lunak modern.
                     </p>
+                    <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition">
+                        <i data-lucide="rocket" class="w-32 h-32 text-white"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Divisions Section -->
-    <section id="divisions" class="py-24 bg-brand-dark/50 relative">
+    <section id="divisions" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-                <div>
-                    <h2 class="text-xs font-mono tracking-widest text-brand-sky uppercase mb-3">// Pilihan Jalur Minat</h2>
-                    <p class="text-3xl sm:text-4xl font-extrabold text-white">Divisi Utama CODAS</p>
-                </div>
-                <p class="text-gray-400 max-w-md mt-4 md:mt-0 text-sm">Pilih divisi yang paling sesuai dengan passion-mu, atau pelajari semuanya secara bertahap!</p>
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-mono-tech text-electric tracking-widest uppercase font-semibold">Specialized Pathways</h2>
+                <h3 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">Our Divisions</h3>
+                <p class="text-gray-400 text-base">Pilih minat teknologi yang ingin kamu kuasai dan kembangkan bersama mentor terbaik.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Division 1 -->
-                <div class="glass-card rounded-2xl p-6 border-t-4 border-t-brand-sky flex flex-col justify-between">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Division 1: AI -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl flex flex-col justify-between border-t-2 border-t-purple-500">
                     <div>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-mono text-brand-sky bg-brand-sky/10 px-3 py-1 rounded-full">DEV-01</span>
-                            <i class="fa-solid fa-code text-gray-500 text-xl"></i>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6">
+                            <i data-lucide="bot" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Web Development</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Pelajari pembuatan website interaktif dari nol menggunakan HTML, CSS, JavaScript, dan Tailwind CSS.</p>
+                        <h4 class="text-xl font-bold text-white mb-2">Artificial Intelligence</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Belajar prinsip dasar AI, Machine Learning, prompt engineering, Large Language Models (LLM), serta pemanfaatan AI secara beretika & bertanggung jawab.
+                        </p>
                     </div>
-                    <div class="border-t border-gray-800 pt-4 mt-2">
-                        <span class="text-[11px] text-gray-500 uppercase font-mono block mb-1">Tech Stack:</span>
-                        <div class="flex gap-2 text-xs font-mono text-brand-light">
-                            <span>#HTML</span> <span>#JS</span> <span>#Tailwind</span>
+                    <div class="flex items-center justify-between text-xs font-mono-tech text-purple-400 border-t border-gray-800 pt-4">
+                        <span>Python • LLMs • ML</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
+                <!-- Division 2: Web Dev -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl flex flex-col justify-between border-t-2 border-t-electric">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-electric/10 text-electric flex items-center justify-center mb-6">
+                            <i data-lucide="layout" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Web Development</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Membangun website modern dan interaktif menggunakan HTML, CSS, JavaScript, Tailwind CSS, serta kerangka kerja web kontemporer.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs font-mono-tech text-electric border-t border-gray-800 pt-4">
+                        <span>HTML • CSS • JavaScript</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
+                <!-- Division 3: Creative Design -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl flex flex-col justify-between border-t-2 border-t-pink-500">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-6">
+                            <i data-lucide="figma" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Creative Design</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Mengeksplorasi antarmuka UI/UX, prinsip tata letak visual, pembuatan aset grafis digital, serta perancangan pengalaman pengguna yang futuristik.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs font-mono-tech text-pink-400 border-t border-gray-800 pt-4">
+                        <span>Figma • UI/UX • Assets</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
+                <!-- Division 4: Programming & Tech -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl flex flex-col justify-between border-t-2 border-t-emerald-500">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6">
+                            <i data-lucide="code-2" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Programming & Tech</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Mempertajam logika pemrograman, pemahaman algoritma dasar, pemecahan masalah (problem solving), dan komputasi cerdas.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs font-mono-tech text-emerald-400 border-t border-gray-800 pt-4">
+                        <span>Algorithms • Logic • C++</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
+                <!-- Division 5: Digital Innovation -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl flex flex-col justify-between border-t-2 border-t-amber-500 md:col-span-2 lg:col-span-2">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-6">
+                            <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Digital Innovation</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Mengembangkan produk startup digital, eksperimen teknologi baru (IoT & AI Integration), menyusun proposal proyek, dan prototyping solusi siap guna untuk sekolah atau masyarakat.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs font-mono-tech text-amber-400 border-t border-gray-800 pt-4">
+                        <span>Prototyping • Tech Ventures • Pitching</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="py-24 bg-navy-900/40 border-t border-gray-800/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-mono-tech text-electric tracking-widest uppercase font-semibold">Community Experience</h2>
+                <h3 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">Learn, Build, and Experience.</h3>
+                <p class="text-gray-400 text-base">Berbagai agenda interaktif yang dirancang untuk mengasah skill teknis dan soft skill anggota.</p>
+            </div>
+
+            <!-- Activities Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Activity 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="AI & Tech Workshop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono-tech bg-navy-900/80 backdrop-blur-md text-electric border border-electric/30">Workshop</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Workshop AI & Teknologi Digital</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Sesi hands-on mengenal teknologi kecerdasan buatan terbaru dan aplikasinya dalam pembelajaran.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 font-mono-tech">
+                            <i data-lucide="calendar" class="w-4 h-4 text-electric"></i>
+                            <span>Jadwal Rutin Bulanan</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Division 2 -->
-                <div class="glass-card rounded-2xl p-6 border-t-4 border-t-brand-cyan flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-mono text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-full">DATA-02</span>
-                            <i class="fa-solid fa-chart-pie text-gray-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Data Science & AI</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Olah data menjadi informasi berharga, buat visualisasi menarik, dan kenali dasar Machine Learning dengan Python.</p>
+                <!-- Activity 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Coding Session" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono-tech bg-navy-900/80 backdrop-blur-md text-purple-400 border border-purple-500/30">Coding</span>
                     </div>
-                    <div class="border-t border-gray-800 pt-4 mt-2">
-                        <span class="text-[11px] text-gray-500 uppercase font-mono block mb-1">Tech Stack:</span>
-                        <div class="flex gap-2 text-xs font-mono text-brand-light">
-                            <span>#Python</span> <span>#Pandas</span> <span>#AI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Division 3 -->
-                <div class="glass-card rounded-2xl p-6 border-t-4 border-t-brand-sky flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-mono text-brand-sky bg-brand-sky/10 px-3 py-1 rounded-full">ALG-03</span>
-                            <i class="fa-solid fa-brain text-gray-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Competitive Programming</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Latih kemampuan berpikir logis dan pemecahan masalah kompleks untuk persiapan Olimpiade Komputer (OSN).</p>
-                    </div>
-                    <div class="border-t border-gray-800 pt-4 mt-2">
-                        <span class="text-[11px] text-gray-500 uppercase font-mono block mb-1">Tech Stack:</span>
-                        <div class="flex gap-2 text-xs font-mono text-brand-light">
-                            <span>#C++</span> <span>#Algorithm</span> <span>#Logic</span>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Coding & Web Dev Jam</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Latihan bersama menulis kode bersih, membuat landing page, dan memecahkan algoritma secara intensif.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 font-mono-tech">
+                            <i data-lucide="clock" class="w-4 h-4 text-purple-400"></i>
+                            <span>Sesi Mingguan</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Division 4 -->
-                <div class="glass-card rounded-2xl p-6 border-t-4 border-t-brand-cyan flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-mono text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-full">DES-04</span>
-                            <i class="fa-solid fa-wand-magic-sparkles text-gray-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">UI/UX Design</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Rancang antarmuka aplikasi yang cantik, user-friendly, dan intuitif menggunakan aplikasi Figma.</p>
+                <!-- Activity 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=800&q=80" alt="Design Session" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono-tech bg-navy-900/80 backdrop-blur-md text-pink-400 border border-pink-500/30">Design</span>
                     </div>
-                    <div class="border-t border-gray-800 pt-4 mt-2">
-                        <span class="text-[11px] text-gray-500 uppercase font-mono block mb-1">Tech Stack:</span>
-                        <div class="flex gap-2 text-xs font-mono text-brand-light">
-                            <span>#Figma</span> <span>#Wireframe</span> <span>#Prototype</span>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Creative UI/UX Design Sprint</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Merancang wireframe, prototyping aplikasi seluler, dan eksplorasi desain visual menggunakan Figma.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 font-mono-tech">
+                            <i data-lucide="layers" class="w-4 h-4 text-pink-400"></i>
+                            <span>Sesi Dwi-Mingguan</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Activity 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Collaboration" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono-tech bg-navy-900/80 backdrop-blur-md text-emerald-400 border border-emerald-500/30">Projects</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Project Collaboration</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Kolaborasi lintas divisi untuk membangun aplikasi yang berguna secara langsung bagi lingkungan sekolah.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 font-mono-tech">
+                            <i data-lucide="users" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Proyek Semester</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 5 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80" alt="Showcase" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono-tech bg-navy-900/80 backdrop-blur-md text-amber-400 border border-amber-500/30">Showcase</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Presentasi Karya Anggota</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Ajang pameran hasil ide dan inovasi digital yang diciptakan anggota kepada khalayak sekolah.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 font-mono-tech">
+                            <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+                            <span>Akhir Semester</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 6 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Hackathon" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono-tech bg-navy-900/80 backdrop-blur-md text-cyan-400 border border-cyan-500/30">Competition</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Kompetisi & Internal Hackathon</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Ajang kompetisi memecahkan tantangan teknologi dalam waktu terbatas untuk melatih daya cipta kilat.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 font-mono-tech">
+                            <i data-lucide="trophy" class="w-4 h-4 text-cyan-400"></i>
+                            <span>Event Tahunan</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -401,143 +556,121 @@
     <!-- Projects Showcase Section -->
     <section id="projects" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-mono tracking-widest text-brand-sky uppercase mb-3">// Galeri Karya</h2>
-                <p class="text-3xl sm:text-4xl font-extrabold text-white">Hasil Karya Anggota CODAS</p>
-                <p class="text-gray-400 mt-4">Lihat apa yang berhasil diciptakan oleh siswa-siswi anggota CODAS dalam beberapa bulan terakhir!</p>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <h2 class="text-xs font-mono-tech text-electric tracking-widest uppercase font-semibold">Innovations</h2>
+                    <h3 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">Ideas Turned Into Reality.</h3>
+                    <p class="text-gray-400 text-base mt-2">Kumpulan proyek buatan anggota CODAS. *(Proyek Demo/Contoh)*</p>
+                </div>
+                <!-- Interactive Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="projectFilters">
+                    <button onclick="filterProjects('all')" class="project-filter-btn px-4 py-2 rounded-lg text-xs font-mono-tech bg-electric text-black font-bold transition">All</button>
+                    <button onclick="filterProjects('web')" class="project-filter-btn px-4 py-2 rounded-lg text-xs font-mono-tech glass-card text-gray-300 hover:text-white transition">Web</button>
+                    <button onclick="filterProjects('ai')" class="project-filter-btn px-4 py-2 rounded-lg text-xs font-mono-tech glass-card text-gray-300 hover:text-white transition">AI</button>
+                    <button onclick="filterProjects('app')" class="project-filter-btn px-4 py-2 rounded-lg text-xs font-mono-tech glass-card text-gray-300 hover:text-white transition">App</button>
+                </div>
             </div>
 
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mb-10">
-                <button onclick="filterProjects('all')" class="project-filter-btn active-filter px-5 py-2 rounded-full text-xs font-semibold glass-panel border border-brand-sky text-brand-black bg-brand-sky transition-all">Semua</button>
-                <button onclick="filterProjects('web')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-semibold glass-panel text-gray-300 hover:text-brand-sky hover:border-brand-sky/50 transition-all">Web Dev</button>
-                <button onclick="filterProjects('ai')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-semibold glass-panel text-gray-300 hover:text-brand-sky hover:border-brand-sky/50 transition-all">AI & Data</button>
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card web glass-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-48 bg-gradient-to-br from-brand-card to-brand-dark p-4 flex items-center justify-center overflow-hidden">
-                        <div class="text-6xl text-brand-sky/30 group-hover:scale-125 transition-transform duration-500">
-                            <i class="fa-solid fa-school"></i>
-                        </div>
-                        <span class="absolute top-3 right-3 bg-brand-black/80 text-brand-sky text-[10px] font-mono px-2.5 py-1 rounded-md border border-brand-sky/30">Web App</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-sky transition-colors">School Event Portal</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Platform manajemen dan pendaftaran kegiatan pensi sekolah terintegrasi.</p>
-                        <div class="flex justify-between items-center text-xs border-t border-gray-800/80 pt-4">
-                            <span class="text-gray-500">Oleh: <strong class="text-gray-300">Tim Web Grade 11</strong></span>
-                            <a href="#" class="text-brand-sky hover:underline font-medium">Detail <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card ai glass-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-48 bg-gradient-to-br from-brand-card to-brand-dark p-4 flex items-center justify-center overflow-hidden">
-                        <div class="text-6xl text-brand-cyan/30 group-hover:scale-125 transition-transform duration-500">
-                            <i class="fa-solid fa-robot"></i>
-                        </div>
-                        <span class="absolute top-3 right-3 bg-brand-black/80 text-brand-cyan text-[10px] font-mono px-2.5 py-1 rounded-md border border-brand-cyan/30">AI Model</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-cyan transition-colors">Smart Trash Classifier</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Deteksi dan klasifikasi jenis sampah otomatis berbasis Computer Vision.</p>
-                        <div class="flex justify-between items-center text-xs border-t border-gray-800/80 pt-4">
-                            <span class="text-gray-500">Oleh: <strong class="text-gray-300">Rizky & Tim AI</strong></span>
-                            <a href="#" class="text-brand-cyan hover:underline font-medium">Detail <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card web glass-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-48 bg-gradient-to-br from-brand-card to-brand-dark p-4 flex items-center justify-center overflow-hidden">
-                        <div class="text-6xl text-brand-sky/30 group-hover:scale-125 transition-transform duration-500">
-                            <i class="fa-solid fa-book-bookmark"></i>
-                        </div>
-                        <span class="absolute top-3 right-3 bg-brand-black/80 text-brand-sky text-[10px] font-mono px-2.5 py-1 rounded-md border border-brand-sky/30">Web App</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-sky transition-colors">Digital Library Catalog</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Sistem katalog buku perpustakaan digital dengan fitur pencarian cepat.</p>
-                        <div class="flex justify-between items-center text-xs border-t border-gray-800/80 pt-4">
-                            <span class="text-gray-500">Oleh: <strong class="text-gray-300">Siti & Amanda</strong></span>
-                            <a href="#" class="text-brand-sky hover:underline font-medium">Detail <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Dynamic Project Grid Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projectsGrid">
+                <!-- Javascript will populate this section dynamically -->
             </div>
         </div>
     </section>
 
-    <!-- Schedule Section -->
-    <section id="schedule" class="py-24 bg-brand-dark/40 relative">
+    <!-- Team Section -->
+    <section id="team" class="py-24 bg-navy-900/30 border-t border-gray-800/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5 space-y-6">
-                    <h2 class="text-xs font-mono tracking-widest text-brand-sky uppercase">// Rutinitas & Jadwal</h2>
-                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Kapan & Di Mana Kita Berkumpul?</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Pertemuan rutin diadakan seminggu sekali untuk sesi materi dan _coding lab_. Kami juga menyediakan kumpul santai online untuk diskusi tugas dan proyek.
-                    </p>
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-mono-tech text-electric tracking-widest uppercase font-semibold">Leadership</h2>
+                <h3 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">Meet the People Behind CODAS.</h3>
+                <p class="text-gray-400 text-base">Tim pengurus & pembina yang menggerakkan komunitas. *(Placeholder Pengurus)*</p>
+            </div>
 
-                    <div class="space-y-4 pt-2">
-                        <div class="flex items-start gap-4 glass-card p-4 rounded-xl">
-                            <div class="p-3 bg-brand-sky/10 text-brand-sky rounded-lg">
-                                <i class="fa-regular fa-calendar-check text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold text-sm">Setiap Hari Jumat</h4>
-                                <p class="text-xs text-gray-400">Pukul 15.30 - 17.00 WIB (Selesai KBM)</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4 glass-card p-4 rounded-xl">
-                            <div class="p-3 bg-brand-cyan/10 text-brand-cyan rounded-lg">
-                                <i class="fa-solid fa-location-dot text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold text-sm">Laboratorium Komputer 2</h4>
-                                <p class="text-xs text-gray-400">Gedung B, Lantai 2 (Full AC & High-speed Wifi)</p>
-                            </div>
-                        </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Pembina -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl text-center group">
+                    <div class="w-24 h-24 mx-auto rounded-full p-1 bg-gradient-to-r from-electric to-purple-600 mb-4 group-hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Pembina CODAS" class="w-full h-full object-cover rounded-full" />
                     </div>
+                    <h4 class="text-lg font-bold text-white">Pembina CODAS</h4>
+                    <p class="text-xs text-electric font-mono-tech mb-3">Guru Pembimbing / Mentor</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">Membimbing arah strategis, kurikulum teknologi, dan memotivasi inovasi anggota.</p>
                 </div>
 
-                <div class="lg:col-span-7">
-                    <!-- Activity Steps Timeline -->
-                    <div class="glass-panel p-8 rounded-2xl relative">
-                        <h4 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-timeline text-brand-sky"></i> Alur Kegiatan Sesi Mingguan
-                        </h4>
+                <!-- Ketua -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl text-center group">
+                    <div class="w-24 h-24 mx-auto rounded-full p-1 bg-gradient-to-r from-electric to-purple-600 mb-4 group-hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=300&q=80" alt="Ketua Ekstrakurikuler" class="w-full h-full object-cover rounded-full" />
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Ketua CODAS</h4>
+                    <p class="text-xs text-purple-400 font-mono-tech mb-3">Leader & Coordinator</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">Mengkoordinasikan kegiatan internal, kolaborasi proyek, dan manajemen tim.</p>
+                </div>
 
-                        <div class="space-y-6 relative border-l-2 border-brand-sky/20 ml-4 pl-6">
-                            <!-- Step 1 -->
-                            <div class="relative">
-                                <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-sky border-4 border-brand-black"></span>
-                                <h5 class="text-sm font-bold text-brand-sky font-mono">15.30 - 16.00 WIB</h5>
-                                <p class="text-white font-semibold text-sm">Briefing & Warm-up Logic</p>
-                                <p class="text-xs text-gray-400 mt-1">Penyampaian teori singkat, kuis logika seru, dan pemaparan studi kasus hari ini.</p>
-                            </div>
+                <!-- Wakil Ketua -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl text-center group">
+                    <div class="w-24 h-24 mx-auto rounded-full p-1 bg-gradient-to-r from-electric to-purple-600 mb-4 group-hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80" alt="Wakil Ketua Ekstrakurikuler" class="w-full h-full object-cover rounded-full" />
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Wakil Ketua</h4>
+                    <p class="text-xs text-cyan-400 font-mono-tech mb-3">Co-Leader & Operations</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">Mengawasi operasional harian, divisi belajar, dan keterlibatan aktif siswa.</p>
+                </div>
 
-                            <!-- Step 2 -->
-                            <div class="relative">
-                                <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-cyan border-4 border-brand-black"></span>
-                                <h5 class="text-sm font-bold text-brand-cyan font-mono">16.00 - 16.45 WIB</h5>
-                                <p class="text-white font-semibold text-sm">Hands-On Coding Lab</p>
-                                <p class="text-xs text-gray-400 mt-1">Praktek langsung di komputer masing-masing dengan pendampingan mentor.</p>
-                            </div>
+                <!-- Sekretaris/Humas -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl text-center group">
+                    <div class="w-24 h-24 mx-auto rounded-full p-1 bg-gradient-to-r from-electric to-purple-600 mb-4 group-hover:scale-105 transition duration-300">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Pengurus Divisi" class="w-full h-full object-cover rounded-full" />
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Tim Pengurus</h4>
+                    <p class="text-xs text-pink-400 font-mono-tech mb-3">Division Leads & Media</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">Mengelola administrasi, media publikasi, dan fasilitas pembelajaran.</p>
+                </div>
 
-                            <!-- Step 3 -->
-                            <div class="relative">
-                                <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-light border-4 border-brand-black"></span>
-                                <h5 class="text-sm font-bold text-brand-light font-mono">16.45 - 17.00 WIB</h5>
-                                <p class="text-white font-semibold text-sm">Showcase & QnA</p>
-                                <p class="text-xs text-gray-400 mt-1">Demonstrasi hasil praktek, tanya jawab, dan penugasan tantangan opsional.</p>
-                            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section id="join" class="py-24 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-card rounded-3xl p-8 sm:p-14 border border-electric/30 shadow-glow relative overflow-hidden text-center">
+                <div class="max-w-2xl mx-auto space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric/10 text-electric text-xs font-mono-tech">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>JOIN THE DIGITAL REVOLUTION</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                        Your Next Big Idea Starts Here.
+                    </h2>
+
+                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+                        Tertarik dengan AI, coding, desain UI/UX, atau inovasi digital? CODAS adalah tempat terbaik untuk mulai berkreasi dan membangun portofolio hebatmu.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <button onclick="openJoinModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-electric text-black font-bold text-sm tracking-wide hover:bg-cyanGlow transition-all shadow-glow hover:scale-105 duration-200 flex items-center justify-center gap-2">
+                            <span>Join CODAS Now</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Requirements / Info Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-gray-800 text-left text-xs">
+                        <div class="p-3 rounded-xl bg-navy-900/60 border border-gray-800">
+                            <span class="font-bold text-white block mb-1">Persyaratan</span>
+                            <span class="text-gray-400">Terbuka untuk seluruh siswa sekolah yang memiliki semangat belajar tinggi.</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-navy-900/60 border border-gray-800">
+                            <span class="font-bold text-white block mb-1">Pengalaman</span>
+                            <span class="text-gray-400">Tidak wajib ada latar belakang coding. Pemula sangat disambut!</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-navy-900/60 border border-gray-800">
+                            <span class="font-bold text-white block mb-1">Periode Pendaftaran</span>
+                            <span class="text-gray-400">Pendaftaran dibuka setiap awal semester ajaran baru.</span>
                         </div>
                     </div>
                 </div>
@@ -546,247 +679,422 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-24 relative">
+    <section id="faq" class="py-24 bg-navy-900/30 border-t border-gray-800/40">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-xs font-mono tracking-widest text-brand-sky uppercase mb-3">// FAQ</h2>
-                <p class="text-3xl sm:text-4xl font-extrabold text-white">Pertanyaan Sering Diajukan</p>
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="text-xs font-mono-tech text-electric tracking-widest uppercase font-semibold">Help Center</h2>
+                <h3 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">Frequently Asked Questions</h3>
+                <p class="text-gray-400 text-base">Pertanyaan yang paling sering diajukan mengenai ekstrakurikuler CODAS.</p>
             </div>
 
-            <div class="space-y-4">
+            <!-- FAQ Accordion Container -->
+            <div class="space-y-4" id="faqAccordion">
+                
                 <!-- FAQ Item 1 -->
-                <div class="glass-card rounded-xl p-6 cursor-pointer toggle-faq">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-base font-bold text-white">Apakah saya harus punya pengalaman coding sebelumnya?</h3>
-                        <i class="fa-solid fa-chevron-down text-brand-sky faq-icon transition-transform"></i>
+                <div class="glass-card rounded-xl overflow-hidden border border-gray-800 transition">
+                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center focus:outline-none">
+                        <span class="pr-4">Apa itu CODAS?</span>
+                        <i data-lucide="chevron-down" id="faqIcon-1" class="w-5 h-5 text-electric transition-transform duration-300"></i>
+                    </button>
+                    <div id="faqContent-1" class="hidden px-5 pb-5 text-sm text-gray-400 leading-relaxed border-t border-gray-800/50 pt-3">
+                        CODAS (Community of Digital and AI at School) adalah ekstrakurikuler sekolah yang berfokus pada eksplorasi dan pengembangan keterampilan di bidang teknologi digital, kecerdasan buatan (AI), pemrograman, desain UI/UX, dan inovasi terapan.
                     </div>
-                    <p class="text-gray-400 text-sm mt-3 hidden faq-answer">
-                        Sama sekali tidak! CODAS terbuka untuk pemula dari nol. Kami akan membimbingmu dari dasar-dasar pemrograman hingga bisa membuat proyek mandiri.
-                    </p>
                 </div>
 
                 <!-- FAQ Item 2 -->
-                <div class="glass-card rounded-xl p-6 cursor-pointer toggle-faq">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-base font-bold text-white">Apakah wajib memiliki laptop pribadi?</h3>
-                        <i class="fa-solid fa-chevron-down text-brand-sky faq-icon transition-transform"></i>
+                <div class="glass-card rounded-xl overflow-hidden border border-gray-800 transition">
+                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center focus:outline-none">
+                        <span class="pr-4">Apakah harus bisa coding untuk bergabung?</span>
+                        <i data-lucide="chevron-down" id="faqIcon-2" class="w-5 h-5 text-electric transition-transform duration-300"></i>
+                    </button>
+                    <div id="faqContent-2" class="hidden px-5 pb-5 text-sm text-gray-400 leading-relaxed border-t border-gray-800/50 pt-3">
+                        Sama sekali tidak! CODAS dirancang untuk memfasilitasi anggota dari tingkat pemula hingga mahir. Kami akan mendampingi kamu belajar dari dasar sesuai divisi yang dipilih.
                     </div>
-                    <p class="text-gray-400 text-sm mt-3 hidden faq-answer">
-                        Tidak wajib. Kamu bisa menggunakan fasilitas PC Laboratorium Komputer sekolah selama kegiatan rutin berlangsung. Namun membawa laptop sendiri disarankan untuk kenyamanan.
-                    </p>
                 </div>
 
                 <!-- FAQ Item 3 -->
-                <div class="glass-card rounded-xl p-6 cursor-pointer toggle-faq">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-base font-bold text-white">Bolehkah memilih lebih dari satu divisi?</h3>
-                        <i class="fa-solid fa-chevron-down text-brand-sky faq-icon transition-transform"></i>
-                    </div>
-                    <p class="text-gray-400 text-sm mt-3 hidden faq-answer">
-                        Pada semester pertama, disarankan fokus pada 1 divisi utama. Setelah memahami fondasinya, kamu bebas mengeksplorasi modul dari divisi lain.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Section -->
-    <section id="register" class="py-24 bg-brand-dark/60 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-brand-sky/30 relative overflow-hidden shadow-2xl">
-                <!-- Glowing Decoration -->
-                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-brand-sky/20 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="text-center max-w-xl mx-auto mb-10">
-                    <span class="px-3 py-1 bg-brand-sky/10 text-brand-sky rounded-full text-xs font-mono font-semibold">Mulai Perjalananmu</span>
-                    <h2 class="text-3xl font-extrabold text-white mt-3">Formulir Pendaftaran CODAS</h2>
-                    <p class="text-gray-400 text-sm mt-2">Isi formulir di bawah ini untuk menjadi bagian dari generasi inovator teknologi berikutnya!</p>
-                </div>
-
-                <!-- Interactive Form -->
-                <form id="registration-form" onsubmit="handleRegister(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- Full Name -->
-                        <div>
-                            <label class="block text-xs font-mono text-gray-300 uppercase mb-2">Nama Lengkap *</label>
-                            <input type="text" required placeholder="Contoh: Alex Wijaya" class="w-full bg-brand-black/80 border border-gray-700 focus:border-brand-sky focus:ring-1 focus:ring-brand-sky rounded-xl px-4 py-3 text-white text-sm outline-none transition-all">
-                        </div>
-
-                        <!-- Class/Grade -->
-                        <div>
-                            <label class="block text-xs font-mono text-gray-300 uppercase mb-2">Kelas *</label>
-                            <select required class="w-full bg-brand-black/80 border border-gray-700 focus:border-brand-sky focus:ring-1 focus:ring-brand-sky rounded-xl px-4 py-3 text-white text-sm outline-none transition-all">
-                                <option value="" disabled selected>Pilih Kelas</option>
-                                <option value="10">Kelas X (Sepuluh)</option>
-                                <option value="11">Kelas XI (Sebelas)</option>
-                                <option value="12">Kelas XII (Dua Belas)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- WhatsApp Number -->
-                        <div>
-                            <label class="block text-xs font-mono text-gray-300 uppercase mb-2">No. WhatsApp *</label>
-                            <input type="tel" required placeholder="081234567890" class="w-full bg-brand-black/80 border border-gray-700 focus:border-brand-sky focus:ring-1 focus:ring-brand-sky rounded-xl px-4 py-3 text-white text-sm outline-none transition-all">
-                        </div>
-
-                        <!-- Preferred Division -->
-                        <div>
-                            <label class="block text-xs font-mono text-gray-300 uppercase mb-2">Divisi Minat *</label>
-                            <select required class="w-full bg-brand-black/80 border border-gray-700 focus:border-brand-sky focus:ring-1 focus:ring-brand-sky rounded-xl px-4 py-3 text-white text-sm outline-none transition-all">
-                                <option value="" disabled selected>Pilih Divisi Utama</option>
-                                <option value="web">Web Development</option>
-                                <option value="data">Data Science & AI</option>
-                                <option value="cp">Competitive Programming</option>
-                                <option value="design">UI/UX Design</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Motivation -->
-                    <div>
-                        <label class="block text-xs font-mono text-gray-300 uppercase mb-2">Alasan/Alasan Ingin Bergabung *</label>
-                        <textarea rows="3" required placeholder="Ceritakan singkat motivasimu..." class="w-full bg-brand-black/80 border border-gray-700 focus:border-brand-sky focus:ring-1 focus:ring-brand-sky rounded-xl px-4 py-3 text-white text-sm outline-none transition-all resize-none"></textarea>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-sky to-brand-cyan text-brand-black font-extrabold text-base hover:shadow-[0_0_25px_rgba(56,189,248,0.4)] transition-all transform active:scale-95">
-                        Kirim Pendaftaran <i class="fa-solid fa-paper-plane ml-2"></i>
+                <div class="glass-card rounded-xl overflow-hidden border border-gray-800 transition">
+                    <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center focus:outline-none">
+                        <span class="pr-4">Apakah pemula boleh ikut?</span>
+                        <i data-lucide="chevron-down" id="faqIcon-3" class="w-5 h-5 text-electric transition-transform duration-300"></i>
                     </button>
-                </form>
-
-                <!-- Success Toast Message Box (Hidden by default) -->
-                <div id="success-toast" class="hidden mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/40 text-emerald-300 text-center text-sm font-medium">
-                    <i class="fa-solid fa-circle-check text-lg mr-2"></i> Pendaftaran Berhasil! Tim kami akan menghubungi kamu via WhatsApp.
+                    <div id="faqContent-3" class="hidden px-5 pb-5 text-sm text-gray-400 leading-relaxed border-t border-gray-800/50 pt-3">
+                        Tentu saja! Pemula sangat disambut. Kunci utama bergabung di CODAS adalah rasa ingin tahu dan keinginan untuk belajar hal-hal baru di bidang teknologi.
+                    </div>
                 </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="glass-card rounded-xl overflow-hidden border border-gray-800 transition">
+                    <button onclick="toggleFaq(4)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center focus:outline-none">
+                        <span class="pr-4">Apa saja yang akan dipelajari?</span>
+                        <i data-lucide="chevron-down" id="faqIcon-4" class="w-5 h-5 text-electric transition-transform duration-300"></i>
+                    </button>
+                    <div id="faqContent-4" class="hidden px-5 pb-5 text-sm text-gray-400 leading-relaxed border-t border-gray-800/50 pt-3">
+                        Kamu dapat mempelajari kecerdasan buatan (AI), pembuatan website (HTML/CSS/JS), desain UI/UX dengan Figma, pemecahan masalah algoritma, serta penyusunan proyek inovasi digital secara berkelompok.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="glass-card rounded-xl overflow-hidden border border-gray-800 transition">
+                    <button onclick="toggleFaq(5)" class="w-full p-5 text-left font-semibold text-white flex justify-between items-center focus:outline-none">
+                        <span class="pr-4">Bagaimana cara mendaftar?</span>
+                        <i data-lucide="chevron-down" id="faqIcon-5" class="w-5 h-5 text-electric transition-transform duration-300"></i>
+                    </button>
+                    <div id="faqContent-5" class="hidden px-5 pb-5 text-sm text-gray-400 leading-relaxed border-t border-gray-800/50 pt-3">
+                        Kamu dapat mengklik tombol "Join Us" atau "Join CODAS Now" pada website ini untuk mengisi formulir pendaftaran daring, atau menghubungi pembina dan pengurus resmi CODAS di sekolah.
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-brand-black border-t border-gray-800/80 py-12 text-sm text-gray-400">
+    <!-- Footer Section -->
+    <footer class="bg-navy-950 border-t border-gray-800/60 pt-16 pb-12 text-sm text-gray-400">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
                 <!-- Brand Info -->
-                <div class="space-y-3 md:col-span-2">
-                    <div class="flex items-center space-x-2">
-                        <div class="w-8 h-8 rounded-lg bg-brand-sky flex items-center justify-center font-mono font-bold text-brand-black text-sm">
-                            &lt;/&gt;
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-electric flex items-center justify-center text-black font-bold">
+                            <i data-lucide="cpu" class="w-5 h-5"></i>
                         </div>
-                        <span class="font-extrabold text-lg text-white">CODAS CLUB</span>
+                        <span class="font-mono-tech font-bold text-xl text-white">CODAS</span>
                     </div>
                     <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
-                        Ekstrakurikuler Komputer, Coding, dan Data Science. Wadah bagi para calon pengembang software dan analis data muda berprestasi.
+                        Community of Digital and AI at School — Komunitas eksplorasi teknologi, kecerdasan buatan, pemrograman, dan desain kreatif untuk menginspirasi masa depan siswa.
                     </p>
                 </div>
 
-                <!-- Links -->
+                <!-- Quick Navigation -->
                 <div>
-                    <h4 class="text-white font-bold text-xs uppercase font-mono mb-3">Tautan Cepat</h4>
+                    <h5 class="text-white font-bold mb-4 font-mono-tech text-xs uppercase tracking-wider">Navigation</h5>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="#about" class="hover:text-brand-sky transition-colors">Tentang Kami</a></li>
-                        <li><a href="#divisions" class="hover:text-brand-sky transition-colors">Divisi Masing-Masing</a></li>
-                        <li><a href="#projects" class="hover:text-brand-sky transition-colors">Showcase Karya</a></li>
-                        <li><a href="#register" class="hover:text-brand-sky transition-colors">Formulir Pendaftaran</a></li>
+                        <li><a href="#home" class="hover:text-electric transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-electric transition">About Us</a></li>
+                        <li><a href="#divisions" class="hover:text-electric transition">Divisions</a></li>
+                        <li><a href="#activities" class="hover:text-electric transition">Activities</a></li>
+                        <li><a href="#projects" class="hover:text-electric transition">Projects Showcase</a></li>
                     </ul>
                 </div>
 
-                <!-- Social Media -->
+                <!-- Contact & Official Info -->
                 <div>
-                    <h4 class="text-white font-bold text-xs uppercase font-mono mb-3">Ikuti Kami</h4>
-                    <div class="flex space-x-3">
-                        <a href="#" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-gray-300 hover:text-brand-sky hover:border-brand-sky transition-all"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-gray-300 hover:text-brand-sky hover:border-brand-sky transition-all"><i class="fa-brands fa-github"></i></a>
-                        <a href="#" class="w-9 h-9 rounded-lg glass-panel flex items-center justify-center text-gray-300 hover:text-brand-sky hover:border-brand-sky transition-all"><i class="fa-brands fa-discord"></i></a>
-                    </div>
+                    <h5 class="text-white font-bold mb-4 font-mono-tech text-xs uppercase tracking-wider">Official Info</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-electric"></i> <span>Gedung Lab Komputer Sekolah</span></li>
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-electric"></i> <span>codas.official [at] school.sch.id</span></li>
+                        <li class="flex items-center gap-2"><i data-lucide="instagram" class="w-4 h-4 text-electric"></i> <span>@codas.school</span></li>
+                    </ul>
                 </div>
+
             </div>
 
-            <div class="border-t border-gray-800/60 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
-                <p>&copy; 2026 CODAS Club. All rights reserved.</p>
-                <p class="mt-2 sm:mt-0 font-mono">Designed with <span class="text-brand-sky">&hearts;</span> for Future Coders</p>
+            <!-- Copyright Line -->
+            <div class="pt-8 border-t border-gray-800/50 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>© 2026 CODAS — Community of Digital and AI at School. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#home" class="hover:text-electric transition">Privacy Policy</a>
+                    <a href="#home" class="hover:text-electric transition">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Interactivity Script -->
+    <!-- Registration Modal -->
+    <div id="joinModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-card w-full max-w-lg rounded-2xl border border-electric/30 p-6 sm:p-8 relative shadow-glow">
+            <!-- Close Modal Button -->
+            <button onclick="closeJoinModal()" aria-label="Close registration modal" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="mb-6">
+                <div class="inline-flex items-center gap-2 text-xs font-mono-tech text-electric mb-1">
+                    <i data-lucide="user-plus" class="w-4 h-4"></i>
+                    <span>FORMULIR PENDAFTARAN ANGGOTA</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Join CODAS Community</h3>
+                <p class="text-xs text-gray-400 mt-1">Isi data diri kamu untuk mendaftar sebagai calon anggota baru.</p>
+            </div>
+
+            <!-- Interactive Form -->
+            <form id="registrationForm" onsubmit="handleRegistration(event)" class="space-y-4">
+                <div>
+                    <label for="fullNameInput" class="block text-xs font-medium text-gray-300 mb-1">Nama Lengkap *</label>
+                    <input type="text" id="fullNameInput" required placeholder="Contoh: Budi Pratama" class="w-full px-4 py-2.5 rounded-xl bg-navy-900 border border-gray-700 text-white text-sm focus:outline-none focus:border-electric transition" />
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="gradeSelect" class="block text-xs font-medium text-gray-300 mb-1">Kelas *</label>
+                        <select id="gradeSelect" required class="w-full px-4 py-2.5 rounded-xl bg-navy-900 border border-gray-700 text-white text-sm focus:outline-none focus:border-electric transition">
+                            <option value="">Pilih Kelas</option>
+                            <option value="X">Kelas X</option>
+                            <option value="XI">Kelas XI</option>
+                            <option value="XII">Kelas XII</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="divisionSelect" class="block text-xs font-medium text-gray-300 mb-1">Divisi Minat *</label>
+                        <select id="divisionSelect" required class="w-full px-4 py-2.5 rounded-xl bg-navy-900 border border-gray-700 text-white text-sm focus:outline-none focus:border-electric transition">
+                            <option value="">Pilih Divisi</option>
+                            <option value="AI">Artificial Intelligence</option>
+                            <option value="Web">Web Development</option>
+                            <option value="Design">Creative Design</option>
+                            <option value="Programming">Programming & Tech</option>
+                            <option value="Innovation">Digital Innovation</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="emailInput" class="block text-xs font-medium text-gray-300 mb-1">Email / WhatsApp *</label>
+                    <input type="text" id="emailInput" required placeholder="email@sekolah.sch.id / 0812xxx" class="w-full px-4 py-2.5 rounded-xl bg-navy-900 border border-gray-700 text-white text-sm focus:outline-none focus:border-electric transition" />
+                </div>
+
+                <div>
+                    <label for="reasonInput" class="block text-xs font-medium text-gray-300 mb-1">Alasan Ingin Bergabung</label>
+                    <textarea id="reasonInput" rows="3" placeholder="Ceritakan singkat motivasimu..." class="w-full px-4 py-2.5 rounded-xl bg-navy-900 border border-gray-700 text-white text-sm focus:outline-none focus:border-electric transition resize-none"></textarea>
+                </div>
+
+                <div id="formSuccessMessage" class="hidden p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs text-center">
+                    ✓ Pendaftaran berhasil dikirim! Tim pengurus CODAS akan menghubungi kamu segera.
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-xl bg-electric text-black font-bold text-sm tracking-wide hover:bg-cyanGlow transition shadow-glow flex items-center justify-center gap-2">
+                    <span>Kirim Pendaftaran</span>
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Embedded Application JavaScript Logic -->
     <script>
-        // Mobile Navigation Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if(mobileMenu.classList.contains('hidden')) {
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-            } else {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-xmark');
+        // Sample Data for Editable Projects Showcase
+        const projectData = [
+            {
+                id: 1,
+                title: "Website Portal Sekolah Futuristic",
+                category: "web",
+                description: "Website portal informasi sekolah modern dengan sistem pengumuman real-time dan UI interaktif.",
+                tech: ["HTML", "Tailwind CSS", "JavaScript"],
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+                link: "#"
+            },
+            {
+                id: 2,
+                title: "Chatbot AI Edukatif CODAS",
+                category: "ai",
+                description: "Asisten AI pintar berbasis LLM untuk membantu menjawab pertanyaan materi pelajaran siswa sekolah.",
+                tech: ["Python", "OpenAI API", "Web Interface"],
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+                link: "#"
+            },
+            {
+                id: 3,
+                title: "Aplikasi Produktivitas Siswa",
+                category: "app",
+                description: "Aplikasi pengelola jadwal tugas, reminder ujian, dan pelacak kebiasaan belajar harian.",
+                tech: ["UI/UX Figma", "Web App"],
+                image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80",
+                link: "#"
+            },
+            {
+                id: 4,
+                title: "Platform Belajar Digital Interaktif",
+                category: "web",
+                description: "Platform modul pembelajaran digital terintegrasi kuis interaktif untuk latihan ujian sekolah.",
+                tech: ["JavaScript", "HTML5", "CSS3"],
+                image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&q=80",
+                link: "#"
             }
+        ];
+
+        // Initialize Lucide Icons & App state
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            renderProjects('all');
+            initHeroCanvas();
         });
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
+        // Render Projects Grid
+        function renderProjects(categoryFilter) {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = '';
+
+            const filtered = categoryFilter === 'all' 
+                ? projectData 
+                : projectData.filter(p => p.category === categoryFilter);
+
+            filtered.forEach(proj => {
+                const card = document.createElement('div');
+                card.className = "glass-card glass-card-hover rounded-2xl overflow-hidden border border-gray-800 flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-md text-[10px] font-mono-tech bg-navy-900/90 text-electric border border-electric/30 uppercase">
+                                Demo Project
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">${proj.title}</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">${proj.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                ${proj.tech.map(t => `<span class="px-2 py-0.5 rounded bg-navy-800 text-gray-300 text-[11px] font-mono-tech border border-gray-700">${t}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="viewProjectAlert('${proj.title}')" class="w-full py-2.5 rounded-xl glass-card hover:bg-electric hover:text-black text-electric border border-electric/40 font-semibold text-xs transition flex items-center justify-center gap-2">
+                            <span>View Project</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
             });
-        });
-
-        // FAQ Toggle Accordion
-        const faqToggles = document.querySelectorAll('.toggle-faq');
-        faqToggles.forEach(item => {
-            item.addEventListener('click', () => {
-                const answer = item.querySelector('.faq-answer');
-                const icon = item.querySelector('.faq-icon');
-                
-                answer.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
-            });
-        });
-
-        // Project Filter Functionality
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            const buttons = document.querySelectorAll('.project-filter-btn');
-
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-brand-sky', 'text-brand-black', 'border-brand-sky');
-                btn.classList.add('text-gray-300');
-            });
-
-            event.target.classList.add('bg-brand-sky', 'text-brand-black', 'border-brand-sky');
-            event.target.classList.remove('text-gray-300');
-
-            cards.forEach(card => {
-                if (category === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    if (card.classList.contains(category)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }
-            });
+            lucide.createIcons();
         }
 
-        // Form Registration Handler
-        function handleRegister(event) {
-            event.preventDefault();
-            const toast = document.getElementById('success-toast');
-            const form = document.getElementById('registration-form');
+        // Project Filter Buttons Toggle
+        function filterProjects(category) {
+            const btns = document.querySelectorAll('.project-filter-btn');
+            btns.forEach(btn => {
+                btn.className = "project-filter-btn px-4 py-2 rounded-lg text-xs font-mono-tech glass-card text-gray-300 hover:text-white transition";
+            });
+            event.target.className = "project-filter-btn px-4 py-2 rounded-lg text-xs font-mono-tech bg-electric text-black font-bold transition";
+            renderProjects(category);
+        }
 
-            toast.classList.remove('hidden');
-            form.reset();
+        function viewProjectAlert(title) {
+            alert(`Membuka preview contoh proyek: "${title}". Ini adalah proyek demo buatan anggota CODAS.`);
+        }
 
+        // FAQ Accordion Toggle Logic
+        function toggleFaq(index) {
+            const content = document.getElementById(`faqContent-${index}`);
+            const icon = document.getElementById(`faqIcon-${index}`);
+            
+            const isHidden = content.classList.contains('hidden');
+            
+            // Close all
+            for(let i = 1; i <= 5; i++) {
+                document.getElementById(`faqContent-${i}`)?.classList.add('hidden');
+                document.getElementById(`faqIcon-${i}`)?.classList.remove('rotate-180');
+            }
+
+            if(isHidden) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            }
+        }
+
+        // Mobile Navigation Drawer Toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        mobileBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Close Mobile Drawer on Link Click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // Registration Modal Handlers
+        function openJoinModal() {
+            document.getElementById('joinModal').classList.remove('hidden');
+        }
+
+        function closeJoinModal() {
+            document.getElementById('joinModal').classList.add('hidden');
+            document.getElementById('formSuccessMessage').classList.add('hidden');
+        }
+
+        function handleRegistration(e) {
+            e.preventDefault();
+            const msg = document.getElementById('formSuccessMessage');
+            msg.classList.remove('hidden');
             setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 5000);
+                closeJoinModal();
+                document.getElementById('registrationForm').reset();
+            }, 2500);
+        }
+
+        // Futuristic Interactive Neural Canvas Animation
+        function initHeroCanvas() {
+            const canvas = document.getElementById('heroCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const particles = [];
+            const particleCount = 35;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 1.2,
+                    vy: (Math.random() - 0.5) * 1.2,
+                    radius: Math.random() * 2 + 1.5
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw Network Lines
+                for (let i = 0; i < particleCount; i++) {
+                    for (let j = i + 1; j < particleCount; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(0, 240, 255, ${1 - dist / 100})`;
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // Draw & Move Nodes
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = '#00f0ff';
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = '#00f0ff';
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
         }
     </script>
 </body>
